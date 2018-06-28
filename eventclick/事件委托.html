@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="color-list">
+                <li>red</li>
+                <li>yellow</li>
+                <li>blue</li>
+                <li>green</li>
+                <li>black</li>
+                <li>white</li>
+    </ul>
+    <script>
+        var ul=document.getElementById("color-list");
+        var lis=ul.children;
+        // 弹出索引号
+        // for(var i=0;i<lis.length;i++){
+        //     (function(i){
+        //         lis[i].onclick=function(e){
+        //           alert(i);
+        //         }
+        //     })(i)
+        // }
+        //弹出颜色
+        // for(var i in lis){
+        //     //lis[i].addEventListener("click",showColor,false);
+        //     lis[i].onclick=showColor;
+        // }
+        // function showColor(e){
+        //     var x = e.target;
+        //     alert("The color is " + x.innerHTML);
+        // }
+        //事件委托的方式
+        ul.addEventListener("click",showColor,false);
+        function showColor(e){
+            var x=e.target;
+            if(x.nodeName.toLowerCase() === 'li'){
+                alert('The color is ' + x.innerHTML);
+            }
+        }
+    </script>
+
+
+        <!-- 事件委托还有一个好处就是添加进来的元素也能绑定事件：
+
+        没有使用事件委托：
+
+        <body>
+        <ul id="thl">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        </ul>
+        <button onclick="fun()">touch</button>
+
+        <script>
+            var thl= document.getElementById('thl');
+            var aLi = thl.getElementsByTagName('li');
+            for (var i = 0; i < aLi.length; i++) {
+            　　aLi[i].onclick = fn;
+            }
+            
+            function fn (){
+            console.log(this.innerHTML);
+            }
+
+            function fun(){
+                var node=document.createElement("li");
+                var textnode=document.createTextNode("maomaoliang");
+                node.appendChild(textnode);
+                document.getElementById("thl").appendChild(node);
+            }
+        </script>
+        </body>
+        使用了事件委托：
+
+        <script>
+            var thl= document.getElementById('thl');
+            thl.onclick = function(ev) {
+                ev = ev || event;
+                //兼容处理
+                var target = ev.target || ev.srcElement;
+            　　//找到li元素
+                if (target.nodeName.toLowerCase() == 'li') {
+                    console.log(target.innerHTML);
+                }
+            };
+
+            function fun(){
+                var node=document.createElement("li");
+                var textnode=document.createTextNode("maomaoliang");
+                node.appendChild(textnode);
+                document.getElementById("thl").appendChild(node);
+            }
+        </script> -->
+</body>
+</html>
