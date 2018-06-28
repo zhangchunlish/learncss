@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  	<title>flex Example</title>
+	  <style>
+				.layout.grid .left-center-right{
+					width:100%;
+					display: grid;
+					grid-template-rows: 100px;
+					grid-template-columns: 300px auto 300px;
+					
+				}
+				.layout.grid .left-center-right>div{
+				
+				}
+				.layout.grid .left{
+					width: 300px;
+					background: red;
+				}
+				.layout.grid .center{
+					background: yellow;
+				}
+				.layout.grid .right{
+					width: 300px;
+					background: blue;
+				}
+			</style>
+  </head>
+  <body>      
+    <!-- 网格布局 -->
+    <section class="layout grid">
+				
+				<h1>三栏布局</h1>
+				<article class="left-center-right">
+					<div class="left"></div>
+					<div class="center">
+						<h2>网格布局解决方案</h2>
+						1.这是三栏布局的网格布局解决方案；
+						2.这是三栏布局的网格布局解决方案;
+					</div>
+					<div class="right"></div>
+				</article>
+			</section>
+  </body>
+</html>

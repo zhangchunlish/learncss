@@ -2,24 +2,26 @@
 <html lang="en">
   <head>
   	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-  	<title>�������� Example</title>
-	<style type="text/css">
-	#main{
-	  position:absolute;
+  	<title>float Example</title>
+    <style type="text/css">
+    #wrapper div{
+        position: absolute;
+    }
+	#center{
 	  left:200px;
-	  right:200px;
+	  right:200px;  
 	  height:500px;
       background-color:green;
 	}
 	#left{
-	 float:left;
+      left:0;
 	  width:200px;
 	  height:500px;
 	  background-color:red;
 
 	}
 	#right{
-	  float:right;
+      right:0;
 	  width:200px;
 	  height:500px;
 	  background-color:blue;
@@ -29,9 +31,12 @@
   </head>
   <body>      
     <div id="wrapper">
-        <div id="main"></div>
-		<div id="left"></div>
-		<div id="right"></div>
+				<div id="right"></div>
+				<div id="center"><h2>绝对定位解决方案</h2>
+          1.这是三栏布局的绝对定位解决方案；
+					2.这是三栏布局的绝对定位解决方案；</div>
+				<div id="left"></div>
+
     </div>
   </body>
 </html>
