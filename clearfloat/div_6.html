@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>float Example</title>
+	<style type="text/css">
+		.div1 {
+			background: #000080;
+			border: 1px solid red;
+			float:left;
+			width:98%;
+		}
+		
+		.div2 {
+			background: #800080;
+			border: 1px solid red;
+			height: 100px;
+			margin-top: 10px;
+			clear:both;
+		}
+
+		.left {
+			float: left;
+			width: 20%;
+			height: 200px;
+			background: #DDD
+		}
+
+		.right {
+			float: right;
+			width: 30%;
+			height: 80px;
+			background: #DDD
+		}
+		
+	</style>
+	</style>
+</head>
+
+<body>
+	<!-- 
+		
+		原理：所有代码一起浮动，就变成了一个整体 
+
+		优点：没有优点 
+
+		缺点：会产生新的浮动问题。 
+
+		建议：不推荐使用，只作了解。    -->
+	<div class="div1">
+		<div class="left">Left</div>
+		<div class="right">Right</div>
+	</div>
+	<div class="div2">
+		div2
+	</div>
+</body>
+
+</html>

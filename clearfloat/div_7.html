@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>float Example</title>
+	<style type="text/css">
+		.div1 {
+			background: #000080;
+			border: 1px solid red;
+			width:98%;
+			display: table;
+		}
+		
+		.div2 {
+			background: #800080;
+			border: 1px solid red;
+			height: 100px;
+			margin-top: 10px;
+		}
+
+		.left {
+			float: left;
+			width: 20%;
+			height: 200px;
+			background: #DDD
+		}
+
+		.right {
+			float: right;
+			width: 30%;
+			height: 80px;
+			background: #DDD
+		}
+		
+	</style>
+	</style>
+</head>
+
+<body>
+	<!-- 
+		
+		原理：将div属性变成表格 
+
+		优点：没有优点 
+
+		缺点：会产生新的未知问题。 
+
+		建议：不推荐使用，只作了解。     -->
+	<div class="div1">
+		<div class="left">Left</div>
+		<div class="right">Right</div>
+	</div>
+	<div class="div2">
+		div2
+	</div>
+</body>
+
+</html>

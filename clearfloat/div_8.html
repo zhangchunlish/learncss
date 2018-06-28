@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>float Example</title>
+	<style type="text/css">
+		.div1 {
+			background: #000080;
+			border: 1px solid red;
+		}
+		
+		.div2 {
+			background: #800080;
+			border: 1px solid red;
+			height: 100px;
+			margin-top: 10px;
+		}
+
+		.left {
+			float: left;
+			width: 20%;
+			height: 200px;
+			background: #DDD
+		}
+
+		.right {
+			float: right;
+			width: 30%;
+			height: 80px;
+			background: #DDD
+		}
+		.clearfloat{
+			clear:both;
+		}
+	</style>
+	</style>
+</head>
+
+<body>
+	<!-- 
+		
+		原理：父级div定义zoom:1来解决IE浮动问题，结尾处加 br标签 clear:both 
+
+		建议：不推荐使用，只作了解。     -->
+	<div class="div1">
+		<div class="left">Left</div>
+		<div class="right">Right</div>
+		<br class="clearfloat"/>
+	</div>
+	<div class="div2">
+		div2
+	</div>
+</body>
+
+</html>
