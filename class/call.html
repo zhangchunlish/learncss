@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Parent(name,money){
+        this.name=name;
+        this.money=money;
+        this.info=function(){
+          console.log('姓名：'+this.name+",钱:"+this.money)
+        }
+    }
+    function Child(name){
+        Parent.call(this,name);
+        this.info=function(){
+            console.log('姓名：'+this.name);
+        }
+    }
+    var parent=new Parent('parent','1000');
+    var child=new Child('child');
+    console.log(parent.info());
+    console.log(child.info());
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            background:gold;
+            position: relative;
+            height:500px;
+        }
+        .floated{
+            width:200px;
+            height:200px;
+            float:left;
+            background: green;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left:-100px;
+            margin-top:-100px;
+        }
+        .container2{
+            background:gold;
+            position: relative;
+            width:200px;
+            height:200px;
+        }
+        .floated2{
+            background:green;
+            float:left;
+            position: absolute;
+            left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            margin:auto;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 1.已知浮动元素的宽高 -->
+    <!-- <div class="container">
+        <div class="floated">
+            floated div
+        </div>
+    </div> -->
+    <!-- 1.未知浮动元素的宽高 -->
+    <div class="container2">
+            <div class="floated2">
+                floated div
+            </div>
+    </div>
+</body>
+</html>

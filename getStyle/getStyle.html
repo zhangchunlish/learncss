@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .myDiv{
+            width:200px;
+            height:200px;
+            background-color: darkcyan;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="myDiv"></div>
+</body>
+<script>
+    function getStyle(obj,attr,value){
+        if(!value){
+           if(obj.currentStyle){//ie
+               return obj.currentStyle;
+           }else{
+              return window.getComputedStyle(obj,null)[attr];//dom,参数2是给伪元素用的，传入伪元素字符串
+           }
+        }else{
+            obj.style[attr]=value;
+        }
+    }
+    var obj=document.getElementsByClassName('myDiv')
+    console.log(getStyle(obj[0],'width'));
+
+</script>
+</html>

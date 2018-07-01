@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function AJAX(){
+        var xhr=null;
+        if(window.XMLHttpRequest){
+            xhr=new XMLHttpRequest();
+        }else{
+            try {
+                xhr=new ActiveXObject('Microsoft.XMLHttp')
+            } catch (error) {
+                xhr=new ActiveXObject('msxml2.xmlhttp');
+            }
+        }
+        //get请求
+        this.get=function(url,success,fail){
+            xhr.open('GET','1.jsp',true);
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4){
+                    alert(xhr.status);
+                    if(xhr.status==200){
+                        var txt=xhr.responseText;
+                        txt=eval("("+txt+")");
+                        var ch=txt.charAt(0);
+                        if(ch=='<'){//xml类型
+                            var xml=xhr.responseXML;
+                            success(eval("("+xml+")"))
+                        }else if(ch=="["||ch=="{"){//json类型
+                            txt=eval("("+txt+")");
+                            success(txt);
+                        }else{
+                            success(txt);
+                        }
+                    }else{
+                        if(fail){
+                            fail(xhr.status);
+                        }
+                    }
+                }
+            };
+            xhr.send(null);
+        }
+        //post请求
+        this.post=function(url,param,success,fail){
+            xhr.open('POST','1.jsp',true);
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4){
+                    alert(xhr.status);
+                    if(xhr.status==200){
+                        var txt=xhr.responseText;
+                        //txt=eval("("+txt+")");
+                        var ch=txt.charAt(0);
+                        if(ch=='<'){//xml类型
+                            var xml=xhr.responseXML;
+                            success(eval("("+xml+")"))
+                        }else if(ch=="["||ch=="{"){//json类型
+                            txt=eval("("+txt+")");
+                            success(txt);
+                        }else{
+                            success(txt);
+                        }
+                    }else{
+                        if(fail){
+                            fail(xhr.status);
+                        }
+                    }
+                }
+            }
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send(param);
+        }
+    }
+</script>
+</html>
