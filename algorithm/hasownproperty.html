@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<p>Object.keys() 返回对象的可枚举属性和方法的名称数组。</p>
+<p>Object.getOwnPropertyNames() 返回的数组的所有属性(可枚举或不可枚举)直接找到给定对象。</p>
+</body>
+<script>
+    // 创建一个对象的构造方法
+    function myObj(name, attr) {
+        this.name = name;
+        this.attr = attr;
+
+        this.sayHi = function () {
+            return 'hi everyone!!!';
+        }
+    }
+
+    // 创建一个对象
+    var myTester = new myObj("shinejaie", 1)
+    // 获取直接在对象上定义(可枚举)的属性和方法
+    var arr = Object.keys(myTester);
+    console.log('arr', arr); // 输出 arr ["name", "attr", "sayHi"]
+
+    // 返回的数组的所有属性(可枚举或不可枚举)直接找到给定对象。
+    console.log("attr", Object.getOwnPropertyNames(myTester)); // 输出 attr ["name", "attr", "sayHi"]
+
+    // 在 Object 原型上增加一个属性
+    Object.prototype.newShine = "it's me";
+
+    // 返回可枚举属性一直找到该对象的原型链
+    for (var i in myTester) {
+        console.log(i);
+    }
+    // 输出 name,attr,sayHi,newShine
+
+    // 返回直接定义在该对象上的可枚举属性
+    for (var i in myTester) {
+        if (myTester.hasOwnProperty(i)) {
+            console.log(i);
+        }
+    }
+    // 输出 name,attr,sayHi
+
+
+    //  Object.keys()、Object.getOwnPropertyNames()、for...in...对比
+    // 不可枚举的对象属性
+    var nonenum = Object.create({}, {
+        getFoo: {
+            value: function () {
+                return this.foo;
+            },
+            enumerable: false
+        }
+    });
+    nonenum.foo = 1;
+    nonenum.asj = 2;
+
+    // 获取对象可枚举或不可枚举的属性
+    console.log(Object.getOwnPropertyNames(nonenum).sort()); // 输出 ["asj", "foo", "getFoo"]
+
+    // 获取对象可枚举的属性
+    console.log(Object.keys(nonenum).sort()); // 输出 ["asj", "foo"]
+
+    // 返回直接定义在该对象上的可枚举属性
+    for (var i in nonenum) {
+        if (nonenum.hasOwnProperty(i)) {
+            console.log(i); // 输出 foo asj
+        }
+    }
+
+    //分别获取JavaScript对象属性名和方法名
+    // 创建一个对象的构造方法
+    function myObj(name, attr) {
+        this.name = name;
+        this.attr = attr;
+
+        this.sayHi = function () {
+            return 'hi everyone!!!';
+        }
+    }
+
+    // 创建一个对象
+    var myTester = new myObj("shinejaie", 1)
+
+    // 获取对象方法
+    for (var i in myTester) {
+        if (myTester.hasOwnProperty(i) && typeof myTester[i] == "function") {
+            console.log("对象方法: ", i, "=", myTester[i])
+        }
+    }
+    // 输出 对象方法: sayHi = () { return 'hi everyone!!!'; }
+
+    // 获取对象属性
+    for (var i in myTester) {
+        if (myTester.hasOwnProperty(i) && typeof myTester[i] != "function") {
+            console.log("对象属性: ", i);
+        }
+    }
+    // 输出 对象属性: name 对象属性: attr
+</script>
+</html>
