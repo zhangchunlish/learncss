@@ -13,7 +13,7 @@ img {
     margin:100px auto;
     position: relative;
     overflow: hidden;
-    border: 1px solid green;
+    border: 1px solid rgb(31, 66, 31);
 }
 /*滚动盒子样式*/
 .slider {
